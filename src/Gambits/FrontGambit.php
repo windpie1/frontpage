@@ -13,7 +13,7 @@ namespace FoF\FrontPage\Gambits;
 
 use Flarum\Filter\FilterInterface;
 use Flarum\Filter\FilterState;
-use Flarum\Query\AbstractQueryState;
+use Flarum\Search\SearchState;
 use Flarum\Search\AbstractRegexGambit;
 use Illuminate\Database\Query\Builder;
 
@@ -43,6 +43,7 @@ class FrontGambit extends AbstractRegexGambit implements FilterInterface
      * @return void
      */
     public function conditions(AbstractQueryState $search, array $matches, $negate)
+    public function conditions(SearchState $search, array $matches, $negate)
     {
         $this->constrain($search->getQuery(), $negate);
     }
